@@ -21,6 +21,13 @@ import politico6 from "./Images/Politicos/politico6.png";
 import politico7 from "./Images/Politicos/politico7.png";
 import politico8 from "./Images/Politicos/politico8.png";
 import politico9 from "./Images/Politicos/politico9.jpg";
+import politico10 from "./Images/Politicos/politico10.webp";
+
+import politico11 from "./Images/Politicos/politico11.jpg";
+import politico12 from "./Images/Politicos/politico12.jpg";
+import politico13 from "./Images/Politicos/politico13.webp";
+import politico14 from "./Images/Politicos/politico14.jpg";
+import politico15 from "./Images/Politicos/politico15.jpg";
 
 
 import audioHimno from "./Sounds/Himno_URSS.mp3";
@@ -71,7 +78,13 @@ function Home() {
     politico6,
     politico7,
     politico8,
-    politico9
+    politico9,
+    politico10,
+    politico11,
+    politico12,
+    politico13,
+    politico14,
+    politico15
   ];
 
   const createUser = async () => {
