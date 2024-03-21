@@ -20,6 +20,8 @@ import politico5 from "./Images/Politicos/politico5.jpg";
 import politico6 from "./Images/Politicos/politico6.png";
 import politico7 from "./Images/Politicos/politico7.png";
 import politico8 from "./Images/Politicos/politico8.png";
+import politico9 from "./Images/Politicos/politico9.jpg";
+
 
 import audioHimno from "./Sounds/Himno_URSS.mp3";
 import audioGta from "./Sounds/GTA_Mision.mp3";
@@ -68,7 +70,8 @@ function Home() {
     politico5,
     politico6,
     politico7,
-    politico8
+    politico8,
+    politico9
   ];
 
   const createUser = async () => {
