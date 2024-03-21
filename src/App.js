@@ -147,7 +147,7 @@ function Home() {
           }}
         />
         <label className="checkbox-label">
-          Señor:
+          Senior:
           <input
             type="checkbox"
             checked={newUser.señor}
@@ -168,7 +168,7 @@ function Home() {
 
       <div className="container">
         <div className="column">
-          <h1>Señores (Total points: {totalPointsSeñores})</h1>
+          <h1>Seniors (Total points: {totalPointsSeñores})</h1>
           {señores.map((user) => (
             <div className="userMember" key={user.id}>
               <div className="divMember">
