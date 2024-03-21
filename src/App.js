@@ -144,7 +144,7 @@ function Home() {
           }}
         />
         <label className="checkbox-label">
-          Señor:
+          Senior:
           <input
             type="checkbox"
             checked={newUser.señor}
