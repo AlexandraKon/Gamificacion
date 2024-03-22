@@ -10,6 +10,7 @@ import {
   deleteDoc,
   doc,
   onSnapshot,
+  setDoc,
 } from "firebase/firestore";
 
 import politico1 from "./Images/Politicos/politico1.jpg";
@@ -65,6 +66,9 @@ function Home() {
   });
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db, "users");
+  const sprintsCollectionRef = collection(db, "sprints"); // Nueva colección para guardar los datos del sprint
+  const [password, setPassword] = useState("");
+  const [incorrectPassword, setIncorrectPassword] = useState(false);
 
   const imagesData = [
     politico1,
@@ -124,20 +128,70 @@ function Home() {
     await deleteDoc(userDoc);
   };
 
+  const closeSprint = async () => {
+    const enteredPassword = prompt("Enter password for closing sprint:");
+    if (enteredPassword === "Salle23@") {
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      const currentYear = currentDate.getFullYear();
+  
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+  
+      const month = monthNames[currentMonth];
+      const year = currentYear;
+  
+      // Guardar datos del sprint por mes, año y nombre de usuario
+      users.forEach(async (user) => {
+        const sprintDocRef = doc(sprintsCollectionRef, `${user.name}-${month}-${year}`);
+        await setDoc(sprintDocRef, { points: user.points });
+      });
+      
+      // Mostrar mensaje de éxito
+      alert("Sprint closed successfully. Data saved.");
+    } else {
+      // Mostrar mensaje de contraseña incorrecta
+      setIncorrectPassword(true);
+    }
+  };
+
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const allUsers = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      
+      // Separar usuarios señores y juniors
+      const señores = allUsers.filter((user) => user.señor);
+      const juniors = allUsers.filter((user) => !user.señor);
+  
+      // Ordenar usuarios por puntos
+      señores.sort((a, b) => b.points - a.points);
+      juniors.sort((a, b) => b.points - a.points);
+  
+      // Establecer usuarios ordenados
+      setUsers([...señores, ...juniors]);
     };
-
+  
     getUsers();
-
+  
     const unsubscribe = onSnapshot(usersCollectionRef, (snapshot) => {
-      setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const allUsers = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  
+      // Separar usuarios señores y juniors
+      const señores = allUsers.filter((user) => user.señor);
+      const juniors = allUsers.filter((user) => !user.señor);
+  
+      // Ordenar usuarios por puntos
+      señores.sort((a, b) => b.points - a.points);
+      juniors.sort((a, b) => b.points - a.points);
+  
+      // Establecer usuarios ordenados
+      setUsers([...señores, ...juniors]);
     });
-
+  
     return unsubscribe;
   }, []);
+  
 
   const señores = users.filter((user) => user.señor);
   const juniors = users.filter((user) => !user.señor);
@@ -185,6 +239,9 @@ function Home() {
 
         <button className="btnCreate" onClick={createUser}>
           Create User
+        </button>
+        <button className="btnCreate" onClick={closeSprint}>
+          Close Sprint
         </button>
         <Link to="/sonidos">
           <button className="btnSonidos">Sonidos</button>
