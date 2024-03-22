@@ -1,2 +1,2 @@
-"# Gamificacion" 
+# Gamificacion
 https://gamificacion.vercel.app/
