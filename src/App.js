@@ -23,12 +23,23 @@ import politico7 from "./Images/Politicos/politico7.png";
 import politico8 from "./Images/Politicos/politico8.png";
 import politico9 from "./Images/Politicos/politico9.jpg";
 import politico10 from "./Images/Politicos/politico10.webp";
-
 import politico11 from "./Images/Politicos/politico11.jpg";
 import politico12 from "./Images/Politicos/politico12.jpg";
 import politico13 from "./Images/Politicos/politico13.webp";
 import politico14 from "./Images/Politicos/politico14.jpg";
 import politico15 from "./Images/Politicos/politico15.jpg";
+
+import politico16 from "./Images/Politicos/politico16.jpg";
+import politico17 from "./Images/Politicos/politico17.jpg";
+import politico18 from "./Images/Politicos/politico18.avif";
+
+import politico20 from "./Images/Politicos/politico20.jpg";
+import politico21 from "./Images/Politicos/politico21.jpg";
+
+import politico23 from "./Images/Politicos/politico23.jpg";
+import politico24 from "./Images/Politicos/politico24.jpg";
+import politico25 from "./Images/Politicos/politico25.jpg";
+
 
 import audioHimno from "./Sounds/Himno_URSS.mp3";
 import audioGta from "./Sounds/GTA_Mision.mp3";
@@ -86,6 +97,16 @@ function Home() {
     politico13,
     politico14,
     politico15,
+    politico16,
+    politico17,
+    politico18,
+
+    politico20,
+    politico21,
+
+    politico23,
+    politico24,
+    politico25,
   ];
 
   const createUser = async () => {
