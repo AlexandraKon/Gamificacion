@@ -159,19 +159,19 @@ function Home() {
       const currentDate = new Date();
       const currentMonth = currentDate.getMonth();
       const currentYear = currentDate.getFullYear();
-  
+
       const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
-  
+
       const month = monthNames[currentMonth];
       const year = currentYear;
-  
+
       // Guardar datos del sprint por mes, año y nombre de usuario
       users.forEach(async (user) => {
         const sprintDocRef = doc(sprintsCollectionRef, `${user.name}-${month}-${year}`);
         await setDoc(sprintDocRef, { points: user.points });
       });
-      
+
       // Mostrar mensaje de éxito
       alert("Sprint closed successfully. Data saved.");
     } else {
@@ -184,39 +184,39 @@ function Home() {
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
       const allUsers = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      
+
       // Separar usuarios señores y juniors
       const señores = allUsers.filter((user) => user.señor);
       const juniors = allUsers.filter((user) => !user.señor);
-  
+
       // Ordenar usuarios por puntos
       señores.sort((a, b) => b.points - a.points);
       juniors.sort((a, b) => b.points - a.points);
-  
+
       // Establecer usuarios ordenados
       setUsers([...señores, ...juniors]);
     };
-  
+
     getUsers();
-  
+
     const unsubscribe = onSnapshot(usersCollectionRef, (snapshot) => {
       const allUsers = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  
+
       // Separar usuarios señores y juniors
       const señores = allUsers.filter((user) => user.señor);
       const juniors = allUsers.filter((user) => !user.señor);
-  
+
       // Ordenar usuarios por puntos
       señores.sort((a, b) => b.points - a.points);
       juniors.sort((a, b) => b.points - a.points);
-  
+
       // Establecer usuarios ordenados
       setUsers([...señores, ...juniors]);
     });
-  
+
     return unsubscribe;
   }, []);
-  
+
 
   const señores = users.filter((user) => user.señor);
   const juniors = users.filter((user) => !user.señor);
@@ -469,7 +469,7 @@ function Sonidos() {
             <p>Expediente X</p>
             <button onClick={() => pauseSound("exp_x")}>Stop</button>
           </div>
-                <div class="card">
+          <div class="card">
             <img
               class="img_card"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8ecPdGItJrQOe-ThKpLkDAGG0E87dRs6ew&s"
@@ -491,10 +491,10 @@ function Sonidos() {
             <p>Rajoy</p>
             <button onClick={() => pauseSound("rajoy")}>Stop</button>
           </div>
-                 <div class="card">
+          <div class="card">
             <img
               class="img_card"
-              src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2017/06/15/14975454677947.jpg"
+              src="https://i1.sndcdn.com/artworks-9FEfDz0gEWzbIcgc-ZfrGnQ-t500x500.jpg"
               onClick={() => playSound("atencione")}
               alt="Play Sound"
             />
@@ -502,10 +502,10 @@ function Sonidos() {
             <p>Atencione!</p>
             <button onClick={() => pauseSound("atencione")}>Stop</button>
           </div>
-                 <div class="card">
+          <div class="card">
             <img
               class="img_card"
-              src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2017/06/15/14975454677947.jpg"
+              src="https://memeviral.com.mx/wp-content/uploads/2023/12/plantilla.png"
               onClick={() => playSound("gato")}
               alt="Play Sound"
             />
