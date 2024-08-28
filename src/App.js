@@ -59,6 +59,7 @@ import audio50Cent from "./Sounds/50-Cent-In-Da-Club.mp3";
 import rajoy_audio from "./Sounds/rajoy_meme.mp3";
 import audioAtencione from "./Sounds/Attenzione.mp3";
 import audioGato from "./Sounds/GatoHuh.mp3";
+import audioPum from "./Sounds/PUM-Audio.mp3";
 
 function App() {
   return (
@@ -501,6 +502,17 @@ function Sonidos() {
             <audio id="atencione" src={audioAtencione}></audio>
             <p>Atencione!</p>
             <button onClick={() => pauseSound("atencione")}>Stop</button>
+          </div>
+          <div class="card">
+            <img
+              class="img_card"
+              src="https://www.formulatv.com/images/videos/19000/19526_658697fc59-t.jpg"
+              onClick={() => playSound("pum")}
+              alt="Play Sound"
+            />
+            <audio id="pum" src={audioPum}></audio>
+            <p>PUM!!!</p>
+            <button onClick={() => pauseSound("pum")}>Stop</button>
           </div>
           <div class="card">
             <img
