@@ -435,7 +435,7 @@ function Sonidos() {
           <div class="card">
             <img
               class="img_card"
-              src="https://historia.nationalgeographic.com.es/medio/2021/02/12/titanic_dd4b0e80_907x805.jpg"
+              src="https://static.nationalgeographicla.com/files/styles/image_3200/public/nationalgeographic762774.jpg?w=1600&h=900"
               onClick={() => playSound("titanic")}
               alt="Play Sound"
             />
