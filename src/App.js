@@ -55,6 +55,7 @@ import audioGadget from "./Sounds/Inspector_Gadget.mp3";
 import audioExpediente from "./Sounds/Expediente_X.mp3";
 import audioMartin from "./Sounds/Martín_Matin.mp3";
 import audioPers from "./Sounds/persecución.mp3";
+import audio50Cent from "./Sounds/50-Cent-In-Da-Club.mp3";
 
 function App() {
   return (
@@ -462,6 +463,17 @@ function Sonidos() {
               alt="Play Sound"
             />
             <audio id="exp_x" src={audioExpediente}></audio>
+            <p>Expediente X</p>
+            <button onClick={() => pauseSound("exp_x")}>Stop</button>
+          </div>
+                <div class="card">
+            <img
+              class="img_card"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8ecPdGItJrQOe-ThKpLkDAGG0E87dRs6ew&s"
+              onClick={() => playSound("exp_x")}
+              alt="Play Sound"
+            />
+            <audio id="exp_x" src={audio50Cent}></audio>
             <p>Expediente X</p>
             <button onClick={() => pauseSound("exp_x")}>Stop</button>
           </div>
