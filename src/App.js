@@ -56,7 +56,7 @@ import audioExpediente from "./Sounds/Expediente_X.mp3";
 import audioMartin from "./Sounds/Martín_Matin.mp3";
 import audioPers from "./Sounds/persecución.mp3";
 import audio50Cent from "./Sounds/50-Cent-In-Da-Club.mp3";
-import rajoy_audio from "./Sounds/rajoy_meme.mp3":
+import rajoy_audio from "./Sounds/rajoy_meme.mp3";
 
 function App() {
   return (
