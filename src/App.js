@@ -470,12 +470,12 @@ function Sonidos() {
             <img
               class="img_card"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8ecPdGItJrQOe-ThKpLkDAGG0E87dRs6ew&s"
-              onClick={() => playSound("exp_x")}
+              onClick={() => playSound("50_cent")}
               alt="Play Sound"
             />
-            <audio id="exp_x" src={audio50Cent}></audio>
-            <p>Expediente X</p>
-            <button onClick={() => pauseSound("exp_x")}>Stop</button>
+            <audio id="50_cent" src={audio50Cent}></audio>
+            <p>50 Cent</p>
+            <button onClick={() => pauseSound("50_cent")}>Stop</button>
           </div>
           <div class="card">
             <img
