@@ -57,6 +57,8 @@ import audioMartin from "./Sounds/Martín_Matin.mp3";
 import audioPers from "./Sounds/persecución.mp3";
 import audio50Cent from "./Sounds/50-Cent-In-Da-Club.mp3";
 import rajoy_audio from "./Sounds/rajoy_meme.mp3";
+import audioAtencione from "./Sounds/Attenzione.mp3";
+import audioGato from "./Sounds/GatoHuh.mp3";
 
 function App() {
   return (
@@ -488,6 +490,28 @@ function Sonidos() {
             <audio id="rajoy" src={rajoy_audio}></audio>
             <p>Rajoy</p>
             <button onClick={() => pauseSound("rajoy")}>Stop</button>
+          </div>
+                 <div class="card">
+            <img
+              class="img_card"
+              src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2017/06/15/14975454677947.jpg"
+              onClick={() => playSound("atencione")}
+              alt="Play Sound"
+            />
+            <audio id="atencione" src={audioAtencione}></audio>
+            <p>Atencione!</p>
+            <button onClick={() => pauseSound("atencione")}>Stop</button>
+          </div>
+                 <div class="card">
+            <img
+              class="img_card"
+              src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2017/06/15/14975454677947.jpg"
+              onClick={() => playSound("gato")}
+              alt="Play Sound"
+            />
+            <audio id="gato" src={audioGato}></audio>
+            <p>Gato Huh</p>
+            <button onClick={() => pauseSound("gato")}>Stop</button>
           </div>
           <div class="card">
             <img
