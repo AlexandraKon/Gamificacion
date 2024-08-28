@@ -56,6 +56,7 @@ import audioExpediente from "./Sounds/Expediente_X.mp3";
 import audioMartin from "./Sounds/Martín_Matin.mp3";
 import audioPers from "./Sounds/persecución.mp3";
 import audio50Cent from "./Sounds/50-Cent-In-Da-Club.mp3";
+import rajoy_audio from "./Sounds/rajoy_meme.mp3":
 
 function App() {
   return (
@@ -476,6 +477,17 @@ function Sonidos() {
             <audio id="50_cent" src={audio50Cent}></audio>
             <p>50 Cent</p>
             <button onClick={() => pauseSound("50_cent")}>Stop</button>
+          </div>
+          <div class="card">
+            <img
+              class="img_card"
+              src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2017/06/15/14975454677947.jpg"
+              onClick={() => playSound("rajoy")}
+              alt="Play Sound"
+            />
+            <audio id="rajoy" src={rajoy_audio}></audio>
+            <p>Rajoy</p>
+            <button onClick={() => pauseSound("rajoy")}>Stop</button>
           </div>
           <div class="card">
             <img
