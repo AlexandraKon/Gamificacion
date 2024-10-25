@@ -62,12 +62,29 @@ import audioGato from "./Sounds/GatoHuh.mp3";
 import audioPum from "./Sounds/PUM-Audio.mp3";
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   return (
     <Router>
-      <div className="App">
+      <div className={`App ${theme}`}>
+        <div className="divCrear">
+          <button className="btnToggleTheme" onClick={toggleTheme}>
+            {theme === "light" ? "Dark Mode" : "Light Mode"}
+          </button>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sonidos" element={<Sonidos />} />
+          <Route path="/cards" element={<Cards />} />
         </Routes>
       </div>
     </Router>
@@ -252,7 +269,7 @@ function Home() {
           }}
         />
         <label className="checkbox-label">
-          Senior:
+        Aristócrate:
           <input
             type="checkbox"
             checked={newUser.señor}
@@ -272,11 +289,15 @@ function Home() {
         <Link to="/sonidos">
           <button className="btnSonidos">Sonidos</button>
         </Link>
+        <Link to="/cards">
+          <button className="btnSonidos">Cards</button>
+        </Link>
       </div>
 
       <div className="container">
         <div className="column">
-          <h1>Seniors (Total points: {totalPointsSeñores})</h1>
+          <h1>Aristócrates </h1>
+          <h2>(Total points: {totalPointsSeñores})</h2>
           {señores.map((user) => (
             <div className="userMember" key={user.id}>
               <div className="divMember">
@@ -313,7 +334,8 @@ function Home() {
           ))}
         </div>
         <div className="column">
-          <h1>Juniors (Total points: {totalPointsJuniors})</h1>
+          <h1>Eres una máquina, ¿no? </h1>
+          <h2>(Total points: {totalPointsJuniors})</h2>
           {juniors.map((user) => (
             <div key={user.id}>
               <div className="divMember">
@@ -553,4 +575,29 @@ function Sonidos() {
   );
 }
 
+
+function Cards() {
+  const cardsData = [
+    { color: "#FFDDC1", text: "I'm a funny card!", author: "by Alex" },
+    { color: "#E1F7D5", text: "Why did the chicken...", author: "BY SANDRA" },
+    { color: "#C9E4FF", text: "Keep smiling!", author: "by Charlie" },
+    { color: "#FFE4E1", text: "I am hilarious!", author: "BY MICHAEL" },
+    { color: "#FFF9C4", text: "Don't worry, be happy!", author: "by Emma" },
+  ];
+
+  return (
+    <div className="container_cards">
+      {cardsData.map((card, index) => (
+        <div
+          key={index}
+          className="card cardHover"
+          style={{ backgroundColor: card.color }}
+        >
+          <p>{card.text}</p>
+          <div className="cardAuthor">{card.author}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 export default App;
