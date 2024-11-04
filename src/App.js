@@ -328,7 +328,7 @@ function Home() {
                   deleteUser(user.id);
                 }}
               >
-                Delete {user.name}
+                 {user.name}
               </button>
             </div>
           ))}
@@ -366,7 +366,7 @@ function Home() {
                   deleteUser(user.id);
                 }}
               >
-                Delete {user.name}
+                 {user.name}
               </button>
             </div>
           ))}
